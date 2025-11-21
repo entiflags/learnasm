@@ -21,6 +21,7 @@ _start:
    ;mov rdx, msg01len;       msg01len
    ;syscall          ; );
    print msg00
+   print msg01
    ; exit from our program
    mov rax, 60      ; exit(
    mov rdi, 0       ;       0
@@ -48,6 +49,4 @@ printstr:
 
 segment readable
 msg00: db "Hello world",0dh,0ah,0
-msg00len = $ - msg00
 msg01: db "message 01",0dh,0ah,0
-msg01len = $ - msg01
