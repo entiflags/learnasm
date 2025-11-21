@@ -4,7 +4,7 @@ This file will be introduce the main syscalls using in linux (sorry for bad engl
 ## write
 - the `write` syscall is priting to the screen.
 ```bash
-cdef: ssize_t write(unsigned int fd, const char *buf, size_t count);
+cdef: size_t write(unsigned int fd, const char *buf, size_t count);
 ```
 - `fd`: the file descriptor. For the console, you typically use `1`
  (stdout) or `2` (stderr).

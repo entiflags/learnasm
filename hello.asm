@@ -2,11 +2,17 @@ format ELF64 executable
 segment readable executable
 
 _start:
-   ; lets write an string into the console =)
+   ; lets write an string into the console
    mov rax, 1       ; write(
    mov rdi, 1       ;       stdout,
-   mov rsi, msghello;       msghello,
-   mov rdx, msghellolen;    msghellolen
+   mov rsi, msg00   ;       msg00,
+   mov rdx, msg00len;       msg00len
+   syscall          ; );
+ 
+   mov rax, 1       ; write(
+   mov rdi, 1       ;       stdout,
+   mov rsi, msg01   ;       msg01,
+   mov rdx, msg01len;       msg01len
    syscall          ; );
    ; exit from our program
    mov rax, 60      ; exit(
@@ -14,5 +20,7 @@ _start:
    syscall          ; );
 
 segment readable
-msghello: db "Hello world",0dh,0ah,0
-msghellolen = $ - msghello
+msg00: db "Hello world",0dh,0ah,0
+msg00len = $ - msg00
+msg01: db "message 01",0dh,0ah,0
+msg01len = $ - msg01
